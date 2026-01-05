@@ -1,7 +1,31 @@
-<!doctype html>
-<title>Hello from Flask</title>
-{% if person %}
-  <h1>Hello {{ person }}!</h1>
-{% else %}
-  <h1>Hello, World!</h1>
-{% endif %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TubeVibe</title>
+</head>
+<body>
+    <h1>TubeVibe Analyzer</h1>
+
+    <!-- 1. The Input Form -->
+    <form method="POST">
+        <input type="text" name="url" placeholder="https://www.youtube.com" required>
+        <button type="submit">Check Vibe</button>
+    </form>
+
+    <hr>
+
+    <!-- 2. The Results (Only shows if Python sends data) -->
+    {% if vibe %}
+        <h2>Vibe Verdict: {{ vibe }}</h2>
+        
+        <h3>Top Comments Analyzed:</h3>
+        <ul>
+            {% for c in comments %}
+                <li>
+                    <strong>Score: {{ c.score }}</strong> — {{ c.text }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
