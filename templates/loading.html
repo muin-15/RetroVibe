@@ -1,0 +1,23 @@
+<!-- index.html (TEMPORARY DEBUGGING VERSION) -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TubeVibe</title>
+    <!-- The link MUST be correct. Ensure 'style.css' is in the SAME folder as this file. -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta http-equiv="refresh" content="5,{{url_for('home')}}">
+</head>
+<body>
+    <nav class="Navigator">
+        <div>
+            <div class="Logo">
+            </div>
+            <div class="Headtitle">
+                <p>TubeVibe</p>
+            </div>
+        </div>
+    </nav>
+    <div class="loader"></div>
+</body>
+</html>

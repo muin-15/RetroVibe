@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <nav class="Navigator">
+            <div>
+                <div class="Logo">
+                    <img src="{{ url_for('static', filename='TubeVibe.png') }}" alt="TubeVibe Logo">
+                </div>
+                <div class="Headtitle">
+                <p>TubeVibe</p>
+            </div>
+        </div>
+        </nav>
+        <div>
+        <div class="containerchannel">
+                <form>
+                    <div class="inputs1">
+                        <p>Enter Channel url</p>
+                        <input type="text" placeholder="Channel url....." />
+                    </div>
+
+                    <div class="inputs2">
+                        <button type="submit">Submit</button>
+                    </div>
+
+                    <div >
+                    {% if error %}
+                        <p style="color: red;">{{ error }}</p>
+                    {% endif %}
+                    </div>
+                </form>
+        </div>
+        </div>
+    </body>
+</html>
