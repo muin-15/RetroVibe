@@ -6,8 +6,8 @@
     <body>
         <nav class="Navigator">
             <div>
-                <div class="Logo">
-                    <img src="{{ url_for('static', filename='TubeVibe.png') }}" alt="TubeVibe Logo">
+                <div>
+                    <img class="Logo" src="{{ url_for('static', filename='TubeVibe.png') }}" alt="TubeVibe Logo">
                 </div>
                 <div class="Headtitle">
                 <p>TubeVibe</p>
@@ -19,7 +19,7 @@
                 <form>
                     <div class="inputs1">
                         <p>Enter Channel url</p>
-                        <input type="text" placeholder="Channel url....." />
+                        <input type="text" name="handle" placeholder="Channel url....." />
                     </div>
 
                     <div class="inputs2">
@@ -27,6 +27,13 @@
                     </div>
 
                     <div >
+                        {% if stats %}
+                        <div class="results" style="text-align: center; margin-top: 50px; color: white;">
+                        <h1>Results for {{ stats.title }}</h1>
+                        <p>Subscribers: {{ stats.subs }}</p>
+                        <p>Total Views: {{ stats.views }}</p>
+                        </div>
+                        {% endif %}
                     {% if error %}
                         <p style="color: red;">{{ error }}</p>
                     {% endif %}
