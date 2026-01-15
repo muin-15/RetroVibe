@@ -22,10 +22,8 @@ def loader():
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    stats = None # Start with empty stats
+    stats = None 
     error = None
-
-    # If the user clicked the "Submit" button
     if request.method == 'POST':
         # 1. Get the text from the HTML input
         # Make sure your HTML input has name="handle"
@@ -34,8 +32,6 @@ def home():
         if not user_input:
             error = "Please enter a handle."
         else:
-            # FIX: The API 'forHandle' usually expects the '@' symbol.
-            # If the user forgot it, we add it automatically.
             if not user_input.startswith('@'):
                 user_input = f"@{user_input}"
 
@@ -51,7 +47,6 @@ def home():
                 # 3. Check if we found data
                 if response['items']:
                     data = response['items'][0]
-                    # Store the data in a dictionary to send to HTML
                     stats = {
                         'title': data['snippet']['title'],
                         'subs': data['statistics']['subscriberCount'],
@@ -60,10 +55,8 @@ def home():
                     }
                 else:
                     error = "Channel not found! Did you use the @ handle?"
-            
             except Exception as e:
                 error = f"An error occurred: {e}"
-
     # Render the home page, passing the stats (if any) or errors
     return render_template("home.html", stats=stats, error=error)
 

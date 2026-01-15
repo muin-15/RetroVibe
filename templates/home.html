@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <title>TubeVibe - Stats</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
         <nav class="Navigator">
             <div>
                 <div>
+                    <!-- Make sure TubeVibe.png is inside the 'static' folder -->
                     <img class="Logo" src="{{ url_for('static', filename='TubeVibe.png') }}" alt="TubeVibe Logo">
                 </div>
                 <div class="Headtitle">
-                <p>TubeVibe</p>
+                    <p>TubeVibe</p>
+                </div>
             </div>
-        </div>
         </nav>
-        <div>
+
         <div class="containerchannel">
-                <form>
-                    <div class="inputs1">
-                        <p>Enter Channel url</p>
-                        <input type="text" name="handle" placeholder="Channel url....." />
-                    </div>
+            <!-- ADDED action AND method HERE -->
+            <form action="/home" method="POST">
+                <div class="inputs1">
+                    <p>Enter YouTube Handle</p>
+                    <!-- Changed placeholder to be more accurate for your Python code -->
+                    <input type="text" name="handle" placeholder="@username(e.g. @Google)" required />
+                </div>
 
-                    <div class="inputs2">
-                        <button type="submit">Submit</button>
-                    </div>
-
-                    <div >
-                        {% if stats %}
-                        <div class="results" style="text-align: center; margin-top: 50px; color: white;">
-                        <h1>Results for {{ stats.title }}</h1>
-                        <p>Subscribers: {{ stats.subs }}</p>
-                        <p>Total Views: {{ stats.views }}</p>
+                <div class="inputs2">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+                <div class="Result_container">
+                    {% if stats %}
+                        <div class="results">
+                            <h1>Results for {{ stats.title }}</h1>
+                            <p>Subscribers: {{ stats.subs }}</p>
+                            <p>Total Views: {{ stats.views }}</p>
+                            <!-- You can also add the thumbnail if you want -->
+                            <!-- <img src="{{ stats.thumbnail }}" style="border-radius: 50%;"> -->
                         </div>
-                        {% endif %}
-                    {% if error %}
-                        <p style="color: red;">{{ error }}</p>
                     {% endif %}
-                    </div>
-                </form>
-        </div>
-        </div>
+
+                    {% if error %}
+                        <div style="text-align: center; margin-top: 20px;">
+                            <p style="color: #ff4d4d; font-weight: bold;">{{ error }}</p>
+                        </div>
+                    {% endif %}
+                </div>
     </body>
 </html>

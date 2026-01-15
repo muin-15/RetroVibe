@@ -49,24 +49,20 @@ body{
 }
 
 .containerchannel form{
-  background-color: rgba(255,255,255,0.2);
-  backdrop-filter: blur(10px);
-  padding: 20px;
-  border-radius: 15px;
-  border: 1px solid rgba(255,255,255,0.3);
+  margin-top: 15px;
+  text-align: center;
+  margin: 50px auto;        
+  padding: 30px;            
+  color: white;
+  background-color: #000;   
+  border: 2px solid #2fe41f;
+  border-radius: 15px;  
+  max-height: 650px; 
+  max-width: 500px;         
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  margin-left: 40%;
-  margin-top: 10%;
-  color: rgb(23, 221, 23);
-  width: fit-content;
-  height: 250px;
-  border:6px whitesmoke solid;
-  border-radius: 3%;
-  font-size: 40px;
+  flex-direction: column; 
+  gap: 50px;  
+  box-shadow: 0 0 15px rgba(47, 228, 31, 0.3); 
 }
 .containerchannel input{
   font-size: 25px;
@@ -80,7 +76,29 @@ body{
   border: #2fe41f 2px solid;
   border-radius: 8%;
 }
+.results {
+    text-align: center;
+    margin: 50px auto;        /* 'auto' centers the box horizontally */
+    padding: 30px;            /* Adds space inside so text doesn't hit the border */
+    color: white;
+    background-color: #000;   
+    border: 2px solid #2fe41f;
+    border-radius: 15px;   
+    max-width: 500px;         
+    box-shadow: 0 0 15px rgba(47, 228, 31, 0.3); 
+}
 
+/* Optional: Style the text inside for better hierarchy */
+.results h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #2fe41f;           /* Makes the title green too */
+}
+
+.results p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
 @keyframes l7-1 {
   0%,
   100%  {background-position: 0 -50px,100% -50px}
