@@ -49,8 +49,8 @@ def home():
                     data = response['items'][0]
                     stats = {
                         'title': data['snippet']['title'],
-                        'subs': data['statistics']['subscriberCount'],
-                        'views': data['statistics']['viewCount'],
+                        'subs': f"{int(data['statistics']['subscriberCount']):,}",
+                        'views': f"{int(data['statistics']['viewCount']):,}",
                         'uploads_id': data['contentDetails']['relatedPlaylists']['uploads']
                     }
                 else:
